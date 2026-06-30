@@ -385,6 +385,24 @@ export default function Home() {
             </h2>
           </div>
           <div className="group/list space-y-12">
+  <ExperienceCard
+    date="2025 — Present"
+    title="WordPress Developer (Part-time)"
+    company="Imagine If Institute"
+    link="#"
+    description="Building and maintaining their online learning platform — Divi on the front end, Masteriyo LMS handling course delivery. WooCommerce manages subscriptions through Stripe, works for both solo learners and group cohorts. Set up GA4 and GSC from scratch so they have real visibility into what's performing."
+    skills={["WordPress", "Divi", "Masteriyo LMS", "WooCommerce", "Stripe", "GA4"]}
+  />
+  <ExperienceCard
+    date="2025 — Present"
+    title="Shopify Theme Developer"
+    company="Sports Apparel & Team Uniform Retailer"
+    link="#"
+    description="Sole developer for a Shopify-based sports apparel retailer serving schools, athletic departments, and coaches. Built a custom Collection List page with 60+ Customizer settings, live search, and filterable tabs. Developed a custom landing page and standardized 13 product category pages into one consistent layout system. Wrote fully scoped, mobile responsive Liquid code with zero hardcoded values, every setting editable through the Shopify Customizer. Defined the site's brand style guide covering typography, color, and component standards."
+    skills={["Shopify", "Liquid", "Customizer", "Responsive Design"]}
+  />
+
+            
             <ExperienceCard
               date="2024 — 2025"
               title="WordPress Support"
@@ -440,7 +458,7 @@ export default function Home() {
           <div className="mt-6">
             <a
               className="inline-flex items-baseline font-medium leading-tight text-foreground hover:text-primary focus-visible:text-primary group/link text-base"
-              href="https://drive.google.com/file/d/1wwTtFBJVCFOhnpmV1ozJtXJSyjd5qV5M/view?usp=sharing"
+              href="https://drive.google.com/file/d/1YCAURSnd_CzTORUlD8asg4vFeIiRCBDg/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
@@ -454,7 +472,7 @@ export default function Home() {
           <div className="mt-6">
             <a
               className="inline-flex items-baseline font-medium leading-tight text-foreground hover:text-primary focus-visible:text-primary group/link text-base"
-              href="https://drive.google.com/file/d/1kJ-5ez7nlkeTaFKZNsr7_vvZTyQLBzoZ/view?usp=sharing"
+              href="https://drive.google.com/file/d/1SjOtMGr7tENbsmtCutlGnLULRj0m78Lm/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
             >
