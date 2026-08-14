@@ -22,6 +22,7 @@ import igniteImg from "@assets/ignite-digitals.webp";
 import eminenceImg from "@assets/emmi-logo.png";
 import brewakeningImg from "@assets/brewakening.png";
 import technomalistImg from "@assets/technomalist.png";
+import rvMultimediaImg from "@assets/rv-multimedia.png";
 
 // --- Components ----
 
@@ -100,7 +101,14 @@ const ExperienceCard = ({
   </motion.div>
 );
 
-const ProjectCard = ({ title, description, image, skills, link }: any) => (
+const ProjectCard = ({
+  title,
+  description,
+  image,
+  skills,
+  link,
+  imageFit = "cover",
+}: any) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -117,7 +125,7 @@ const ProjectCard = ({ title, description, image, skills, link }: any) => (
             alt={title}
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            className={`w-full h-full ${imageFit === "contain" ? "object-contain p-3" : "object-cover"} group-hover:scale-105 transition-transform duration-500`}
           />
         ) : (
           <div className="w-full h-full bg-gradient-to-br from-primary/5 to-muted/30 flex items-center justify-center group-hover:scale-105 transition-transform duration-500">
@@ -829,6 +837,19 @@ export default function Home() {
                   "Discord.js",
                 ]}
                 link="https://technomalist.com/"
+              />
+              <ProjectCard
+                title="RV Multimedia"
+                description="A full-service digital agency website showcasing web development, branding, social media marketing, video editing, automation, and business support services."
+                image={rvMultimediaImg}
+                imageFit="contain"
+                skills={[
+                  "WordPress",
+                  "Web Design",
+                  "Responsive Design",
+                  "Digital Agency",
+                ]}
+                link="https://rvmultimedia.com/"
               />
               <ProjectCard
                 title="PixelWave"
