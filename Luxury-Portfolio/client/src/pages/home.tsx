@@ -170,8 +170,8 @@ const ProjectCard = ({
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
   const [activeProjectTab, setActiveProjectTab] = useState<
-    "wordpress" | "webapp"
-  >("wordpress");
+    "featured" | "webapp"
+  >("featured");
 
   // Robust IntersectionObserver-based Scroll Spy
   useEffect(() => {
@@ -797,15 +797,15 @@ export default function Home() {
           {/* Project Tabs */}
           <div className="flex gap-4 mb-8">
             <button
-              onClick={() => setActiveProjectTab("wordpress")}
+              onClick={() => setActiveProjectTab("featured")}
               className={`px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-full border-2 transition-all duration-300 ${
-                activeProjectTab === "wordpress"
+                activeProjectTab === "featured"
                   ? "bg-primary text-primary-foreground border-primary"
                   : "bg-transparent text-muted-foreground border-primary/30 hover:border-primary hover:text-primary"
               }`}
-              data-testid="tab-wordpress"
+              data-testid="tab-featured"
             >
-              WordPress Showcase
+              Featured Projects
             </button>
             <button
               onClick={() => setActiveProjectTab("webapp")}
@@ -820,8 +820,8 @@ export default function Home() {
             </button>
           </div>
 
-          {/* WordPress Projects */}
-          {activeProjectTab === "wordpress" && (
+          {/* Featured Projects */}
+          {activeProjectTab === "featured" && (
             <div className="group/list space-y-12">
               <ProjectCard
                 title="Technomalist"
