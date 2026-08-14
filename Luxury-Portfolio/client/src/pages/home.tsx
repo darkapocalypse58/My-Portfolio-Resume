@@ -21,6 +21,7 @@ import nimbusImg from "@assets/Nimbus-network.webp";
 import igniteImg from "@assets/ignite-digitals.webp";
 import eminenceImg from "@assets/emmi-logo.png";
 import brewakeningImg from "@assets/brewakening.png";
+import technomalistImg from "@assets/technomalist.png";
 
 // --- Components ----
 
@@ -848,6 +849,21 @@ export default function Home() {
                 image={brewakeningImg}
                 skills={["eCommerce", "Brand", "Retail", "Divi"]}
                 link="https://royalblue-rhinoceros-744037.hostingersite.com/12281-2/"
+              />
+              <ProjectCard
+                title="Technomalist"
+                description="An automated technology-news publishing platform that scans RSS feeds, classifies stories, supports editorial review, queues approved articles, and publishes them to a live newsroom."
+                image={technomalistImg}
+                skills={[
+                  "Next.js",
+                  "React",
+                  "Node.js",
+                  "Supabase",
+                  "PostgreSQL",
+                  "Cloudflare Workers",
+                  "Discord.js",
+                ]}
+                link="https://technomalist.com/"
               />
             </div>
           )}
