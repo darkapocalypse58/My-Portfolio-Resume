@@ -816,6 +816,21 @@ export default function Home() {
           {activeProjectTab === "wordpress" && (
             <div className="group/list space-y-12">
               <ProjectCard
+                title="Technomalist"
+                description="An automated technology-news publishing platform that scans RSS feeds, classifies stories, supports editorial review, queues approved articles, and publishes them to a live newsroom."
+                image={technomalistImg}
+                skills={[
+                  "Next.js",
+                  "React",
+                  "Node.js",
+                  "Supabase",
+                  "PostgreSQL",
+                  "Cloudflare Workers",
+                  "Discord.js",
+                ]}
+                link="https://technomalist.com/"
+              />
+              <ProjectCard
                 title="PixelWave"
                 description="A creative agency website showcasing digital design and development services. Built with a focus on modern aesthetics and responsive performance."
                 image={pixelwaveImg}
@@ -849,21 +864,6 @@ export default function Home() {
                 image={brewakeningImg}
                 skills={["eCommerce", "Brand", "Retail", "Divi"]}
                 link="https://royalblue-rhinoceros-744037.hostingersite.com/12281-2/"
-              />
-              <ProjectCard
-                title="Technomalist"
-                description="An automated technology-news publishing platform that scans RSS feeds, classifies stories, supports editorial review, queues approved articles, and publishes them to a live newsroom."
-                image={technomalistImg}
-                skills={[
-                  "Next.js",
-                  "React",
-                  "Node.js",
-                  "Supabase",
-                  "PostgreSQL",
-                  "Cloudflare Workers",
-                  "Discord.js",
-                ]}
-                link="https://technomalist.com/"
               />
             </div>
           )}
