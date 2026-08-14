@@ -24,6 +24,7 @@ import brewakeningImg from "@assets/brewakening.png";
 import technomalistImg from "@assets/technomalist.png";
 import rvMultimediaImg from "@assets/rv-multimedia.png";
 import imagineIfImg from "@assets/imagineif-institute.png";
+import maddockHawkinsImg from "@assets/maddock-hawkins.png";
 
 // --- Components ----
 
@@ -865,6 +866,20 @@ export default function Home() {
                   "Responsive Design",
                 ]}
                 link="https://imagineifinstitute.com/"
+              />
+              <ProjectCard
+                title="Maddock Hawkins"
+                description="A professional website for a Nottingham and East Midlands accountancy firm, presenting bookkeeping, tax returns, accounts preparation, tax planning, audit support, and payroll services with FAQs, service pages, and an integrated blog."
+                image={maddockHawkinsImg}
+                skills={[
+                  "Accounting & Law",
+                  "WordPress",
+                  "Divi",
+                  "HTML5",
+                  "CSS",
+                  "PHP",
+                ]}
+                link="https://maddockhawkins.com/"
               />
               <ProjectCard
                 title="PixelWave"
