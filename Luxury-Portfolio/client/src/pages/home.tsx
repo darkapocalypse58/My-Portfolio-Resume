@@ -329,12 +329,12 @@ const SkillsShowcase = () => (
   </section>
 );
 
-const automationSystems = [
+const automationExperience = [
   {
-    title: "Technomalist Publishing Pipeline",
-    eyebrow: "Content intelligence",
+    title: "Technomalist Content Automation",
+    eyebrow: "Production project",
     description:
-      "An automated newsroom workflow that collects stories from RSS feeds, classifies and filters them, routes candidates through editorial review, queues approved articles, and publishes them to the live site.",
+      "Designed and built an automated newsroom pipeline that collects stories from RSS feeds, classifies and filters them, routes candidates through human editorial review, queues approved articles, and publishes them to the live site.",
     icon: Bot,
     skills: [
       "RSS Ingestion",
@@ -346,10 +346,10 @@ const automationSystems = [
     ],
   },
   {
-    title: "Multi-site Maintenance Workflows",
-    eyebrow: "Website operations",
+    title: "WordPress Fleet Operations",
+    eyebrow: "Operational experience",
     description:
-      "Repeatable maintenance systems for large WordPress portfolios, covering centralized updates, backups, uptime checks, troubleshooting, and safer day-to-day site operations.",
+      "Managed large WordPress portfolios using centralized workflows for updates, backups, monitoring, troubleshooting, and issue triage—turning repetitive maintenance into a consistent and safer operating process.",
     icon: RefreshCw,
     skills: [
       "MainWP",
@@ -361,10 +361,10 @@ const automationSystems = [
     ],
   },
   {
-    title: "Commerce & Learning Automation",
-    eyebrow: "Customer journeys",
+    title: "LMS & Commerce Integrations",
+    eyebrow: "Platform integration",
     description:
-      "Connected ecommerce and learning workflows that handle subscriptions, Stripe payments, individual access, group cohorts, and structured course delivery with less manual administration.",
+      "Implemented connected WooCommerce, Stripe, and Masteriyo LMS workflows for subscriptions, payments, individual enrolment, group cohorts, and structured course access with less manual administration.",
     icon: Workflow,
     skills: [
       "WooCommerce",
@@ -381,7 +381,7 @@ const AutomationShowcase = () => (
   <section
     id="automations"
     className="mb-24 scroll-mt-32"
-    aria-label="Automation systems"
+    aria-label="Automation experience"
   >
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -392,19 +392,19 @@ const AutomationShowcase = () => (
       <div className="mb-8">
         <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.07] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
           <Zap className="h-3.5 w-3.5" />
-          Built to run smarter
+          Hands-on experience
         </div>
         <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
-          Automations & Systems
+          Automation Experience
         </h2>
         <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
-          Practical workflows that reduce repetitive work, connect platforms,
-          and keep content, websites, and customer journeys moving.
+          Systems I’ve personally designed, implemented, and operated—from
+          content pipelines to multi-site maintenance and platform integrations.
         </p>
       </div>
 
       <div className="relative space-y-4 before:absolute before:bottom-8 before:left-6 before:top-8 before:w-px before:bg-gradient-to-b before:from-primary/70 before:via-primary/25 before:to-transparent sm:before:left-7">
-        {automationSystems.map(({ title, eyebrow, description, icon: Icon, skills }, index) => (
+        {automationExperience.map(({ title, eyebrow, description, icon: Icon, skills }, index) => (
           <motion.article
             key={title}
             initial={{ opacity: 0, x: -16 }}
