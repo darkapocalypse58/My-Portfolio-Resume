@@ -329,9 +329,6 @@ const SkillsShowcase = () => (
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
-  const [activeProjectTab, setActiveProjectTab] = useState<
-    "featured" | "webapp"
-  >("featured");
 
   // Robust IntersectionObserver-based Scroll Spy
   useEffect(() => {
@@ -956,35 +953,17 @@ export default function Home() {
             </h2>
           </div>
 
-          {/* Project Tabs */}
-          <div className="flex gap-4 mb-8">
-            <button
-              onClick={() => setActiveProjectTab("featured")}
-              className={`px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-full border-2 transition-all duration-300 ${
-                activeProjectTab === "featured"
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-muted-foreground border-primary/30 hover:border-primary hover:text-primary"
-              }`}
-              data-testid="tab-featured"
-            >
+          <div className="mb-8">
+            <h3 className="font-serif text-2xl font-semibold tracking-tight text-foreground">
               Featured Projects
-            </button>
-            <button
-              onClick={() => setActiveProjectTab("webapp")}
-              className={`px-6 py-2 text-sm font-bold uppercase tracking-widest rounded-full border-2 transition-all duration-300 ${
-                activeProjectTab === "webapp"
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-transparent text-muted-foreground border-primary/30 hover:border-primary hover:text-primary"
-              }`}
-              data-testid="tab-webapp"
-            >
-              Web App
-            </button>
+            </h3>
+            <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
+              Selected websites, platforms, and digital experiences I’ve built.
+            </p>
           </div>
 
           {/* Featured Projects */}
-          {activeProjectTab === "featured" && (
-            <div className="group/list space-y-12">
+          <div className="group/list space-y-12">
               <ProjectCard
                 title="Technomalist"
                 description="An automated technology-news publishing platform that scans RSS feeds, classifies stories, supports editorial review, queues approved articles, and publishes them to a live newsroom."
@@ -1076,19 +1055,7 @@ export default function Home() {
                 skills={["eCommerce", "Brand", "Retail", "Divi"]}
                 link="https://royalblue-rhinoceros-744037.hostingersite.com/12281-2/"
               />
-            </div>
-          )}
-
-          {/* Web App Projects */}
-          {activeProjectTab === "webapp" && (
-            <div className="group/list space-y-12">
-              <div className="text-center py-12 text-muted-foreground">
-                <Code2 className="w-12 h-12 mx-auto mb-4 text-primary/30" />
-                <p className="text-lg">Web App projects coming soon...</p>
-                {/* <p className="text-sm mt-2">Add your web app projects here</p> */}
-              </div>
-            </div>
-          )}
+          </div>
         </section>
 
         <footer className="flex justify-center max-w-md pb-16 text-sm text-muted-foreground sm:pb-0">
