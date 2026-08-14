@@ -23,6 +23,7 @@ import eminenceImg from "@assets/emmi-logo.png";
 import brewakeningImg from "@assets/brewakening.png";
 import technomalistImg from "@assets/technomalist.png";
 import rvMultimediaImg from "@assets/rv-multimedia.png";
+import imagineIfImg from "@assets/imagineif-institute.png";
 
 // --- Components ----
 
@@ -850,6 +851,20 @@ export default function Home() {
                   "Digital Agency",
                 ]}
                 link="https://rvmultimedia.com/"
+              />
+              <ProjectCard
+                title="ImagineIF Institute"
+                description="A comprehensive online learning platform for self-directed entrepreneurial leadership programs, featuring multimedia lessons, interactive exercises, WooCommerce subscriptions, and cohort-based course access."
+                image={imagineIfImg}
+                skills={[
+                  "WordPress",
+                  "Divi",
+                  "WooCommerce",
+                  "Masteriyo LMS",
+                  "Stripe",
+                  "Responsive Design",
+                ]}
+                link="https://imagineifinstitute.com/"
               />
               <ProjectCard
                 title="PixelWave"
