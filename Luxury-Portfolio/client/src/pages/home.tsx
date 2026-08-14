@@ -15,6 +15,10 @@ import {
   Database,
   ShoppingBag,
   Wrench,
+  Bot,
+  Workflow,
+  RefreshCw,
+  Zap,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -325,6 +329,120 @@ const SkillsShowcase = () => (
   </section>
 );
 
+const automationSystems = [
+  {
+    title: "Technomalist Publishing Pipeline",
+    eyebrow: "Content intelligence",
+    description:
+      "An automated newsroom workflow that collects stories from RSS feeds, classifies and filters them, routes candidates through editorial review, queues approved articles, and publishes them to the live site.",
+    icon: Bot,
+    skills: [
+      "RSS Ingestion",
+      "Content Classification",
+      "Editorial Review",
+      "Publishing Queue",
+      "Discord.js",
+      "Cloudflare Workers",
+    ],
+  },
+  {
+    title: "Multi-site Maintenance Workflows",
+    eyebrow: "Website operations",
+    description:
+      "Repeatable maintenance systems for large WordPress portfolios, covering centralized updates, backups, uptime checks, troubleshooting, and safer day-to-day site operations.",
+    icon: RefreshCw,
+    skills: [
+      "MainWP",
+      "WPMU DEV",
+      "Backups",
+      "Plugin Updates",
+      "Monitoring",
+      "Issue Triage",
+    ],
+  },
+  {
+    title: "Commerce & Learning Automation",
+    eyebrow: "Customer journeys",
+    description:
+      "Connected ecommerce and learning workflows that handle subscriptions, Stripe payments, individual access, group cohorts, and structured course delivery with less manual administration.",
+    icon: Workflow,
+    skills: [
+      "WooCommerce",
+      "Stripe",
+      "Masteriyo LMS",
+      "Subscriptions",
+      "Cohort Access",
+      "Analytics",
+    ],
+  },
+];
+
+const AutomationShowcase = () => (
+  <section
+    id="automations"
+    className="mb-24 scroll-mt-32"
+    aria-label="Automation systems"
+  >
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="mb-8">
+        <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.07] px-3 py-1.5 text-xs font-bold uppercase tracking-[0.18em] text-primary">
+          <Zap className="h-3.5 w-3.5" />
+          Built to run smarter
+        </div>
+        <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Automations & Systems
+        </h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+          Practical workflows that reduce repetitive work, connect platforms,
+          and keep content, websites, and customer journeys moving.
+        </p>
+      </div>
+
+      <div className="relative space-y-4 before:absolute before:bottom-8 before:left-6 before:top-8 before:w-px before:bg-gradient-to-b before:from-primary/70 before:via-primary/25 before:to-transparent sm:before:left-7">
+        {automationSystems.map(({ title, eyebrow, description, icon: Icon, skills }, index) => (
+          <motion.article
+            key={title}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.45, delay: index * 0.08 }}
+            className="group relative ml-12 rounded-2xl border border-primary/15 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/45 hover:bg-muted/35 sm:ml-14 sm:p-6"
+          >
+            <div className="absolute -left-11 top-6 z-10 flex h-10 w-10 items-center justify-center rounded-xl border border-primary/35 bg-background text-primary shadow-[0_0_24px_rgba(238,191,29,0.16)] sm:-left-12">
+              <Icon className="h-5 w-5" />
+            </div>
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-primary/60 via-primary/10 to-transparent" />
+            <p className="text-[0.68rem] font-bold uppercase tracking-[0.2em] text-primary">
+              {eyebrow}
+            </p>
+            <h3 className="mt-2 font-serif text-xl font-semibold text-foreground">
+              {title}
+            </h3>
+            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
+              {description}
+            </p>
+            <ul className="mt-4 flex flex-wrap gap-2" aria-label={`${title} technologies`}>
+              {skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="rounded-full border border-primary/15 bg-background/70 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors group-hover:border-primary/25"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
+      </div>
+    </motion.div>
+  </section>
+);
+
 // --- Main Page ---
 
 export default function Home() {
@@ -332,7 +450,13 @@ export default function Home() {
 
   // Robust IntersectionObserver-based Scroll Spy
   useEffect(() => {
-    const sections = ["about", "experience", "technologies", "projects"];
+    const sections = [
+      "about",
+      "experience",
+      "technologies",
+      "automations",
+      "projects",
+    ];
     const visibleSections = new Map<string, number>();
 
     const observer = new IntersectionObserver(
@@ -439,6 +563,12 @@ export default function Home() {
               active={activeSection === "technologies"}
             >
               Skills
+            </NavLink>
+            <NavLink
+              href="#automations"
+              active={activeSection === "automations"}
+            >
+              Automations
             </NavLink>
             <NavLink href="#projects" active={activeSection === "projects"}>
               Portfolio
@@ -651,6 +781,8 @@ export default function Home() {
         </section>
 
         <SkillsShowcase />
+
+        <AutomationShowcase />
 
         {/* Technologies Section */}
         <section
