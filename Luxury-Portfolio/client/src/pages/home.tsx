@@ -12,6 +12,9 @@ import {
   ExternalLink,
   Menu,
   X,
+  Database,
+  ShoppingBag,
+  Wrench,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -165,6 +168,161 @@ const ProjectCard = ({
       </ul>
     </div>
   </motion.div>
+);
+
+const skillGroups = [
+  {
+    title: "Frontend & UI",
+    description: "Responsive, accessible interfaces built for speed and clarity.",
+    icon: Code2,
+    skills: [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "TypeScript",
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "Bootstrap",
+      "Responsive Design",
+      "Web Design",
+    ],
+  },
+  {
+    title: "Backend & Data",
+    description: "Reliable application logic, APIs, databases, and integrations.",
+    icon: Database,
+    skills: [
+      "Node.js",
+      "Express.js",
+      "PHP",
+      "PostgreSQL",
+      "MySQL",
+      "MongoDB",
+      "Supabase",
+      "REST APIs",
+    ],
+  },
+  {
+    title: "CMS & Commerce",
+    description: "Flexible content and commerce systems clients can manage.",
+    icon: ShoppingBag,
+    skills: [
+      "WordPress",
+      "Shopify",
+      "Liquid",
+      "Shopify Customizer",
+      "Divi",
+      "Elementor",
+      "Astra",
+      "WooCommerce",
+      "Masteriyo LMS",
+      "Stripe",
+    ],
+  },
+  {
+    title: "Tools & Delivery",
+    description: "The workflow, analytics, and operations behind every launch.",
+    icon: Wrench,
+    skills: [
+      "Git",
+      "GitHub",
+      "Cloudflare Workers",
+      "GA4",
+      "Google Search Console",
+      "MainWP",
+      "WPMU DEV",
+      "SEO",
+      "AI Integration",
+      "Discord.js",
+      "Troubleshooting",
+    ],
+  },
+];
+
+const featuredSkills = ["WordPress", "Shopify", "React / Next.js", "Node.js"];
+
+const SkillsShowcase = () => (
+  <section
+    id="technologies"
+    className="mb-24 scroll-mt-32"
+    aria-label="Skills and technologies"
+  >
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="mb-8">
+        <p className="mb-3 text-xs font-bold uppercase tracking-[0.24em] text-primary">
+          Technical toolkit
+        </p>
+        <h2 className="font-serif text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+          Skills & Technologies
+        </h2>
+        <p className="mt-4 max-w-xl text-base leading-relaxed text-muted-foreground">
+          A practical full-stack toolkit shaped by six years of building,
+          maintaining, and improving websites, online stores, and web apps.
+        </p>
+      </div>
+
+      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {featuredSkills.map((skill, index) => (
+          <motion.div
+            key={skill}
+            initial={{ opacity: 0, scale: 0.96 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.35, delay: index * 0.06 }}
+            className="relative overflow-hidden rounded-xl border border-primary/30 bg-primary/[0.07] px-4 py-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-primary/70 hover:bg-primary/[0.12] hover:shadow-[0_12px_35px_-18px_rgba(238,191,29,0.65)]"
+          >
+            <span className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
+            <span className="font-serif text-sm font-semibold text-foreground">
+              {skill}
+            </span>
+          </motion.div>
+        ))}
+      </div>
+
+      <div className="grid gap-4 sm:grid-cols-2">
+        {skillGroups.map(({ title, description, icon: Icon, skills }, index) => (
+          <motion.article
+            key={title}
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.07 }}
+            className="group rounded-2xl border border-primary/15 bg-muted/20 p-5 transition-all duration-300 hover:border-primary/45 hover:bg-muted/35"
+          >
+            <div className="mb-4 flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-primary/20 bg-primary/10 text-primary transition-transform duration-300 group-hover:scale-110">
+                <Icon className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="font-serif text-lg font-semibold text-foreground">
+                  {title}
+                </h3>
+                <p className="mt-1 text-xs leading-relaxed text-muted-foreground">
+                  {description}
+                </p>
+              </div>
+            </div>
+            <ul className="flex flex-wrap gap-2" aria-label={`${title} skills`}>
+              {skills.map((skill) => (
+                <li
+                  key={skill}
+                  className="rounded-full border border-primary/15 bg-background/70 px-3 py-1.5 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/50 hover:text-primary"
+                >
+                  {skill}
+                </li>
+              ))}
+            </ul>
+          </motion.article>
+        ))}
+      </div>
+    </motion.div>
+  </section>
 );
 
 // --- Main Page ---
@@ -495,11 +653,13 @@ export default function Home() {
           </div>
         </section>
 
+        <SkillsShowcase />
+
         {/* Technologies Section */}
         <section
-          id="technologies"
-          className="mb-24 scroll-mt-32"
-          aria-label="Technologies"
+          id="technologies-legacy"
+          className="hidden"
+          aria-hidden="true"
         >
           <div className="mb-4">
             <h2 className="text-sm font-bold uppercase tracking-widest text-foreground">
