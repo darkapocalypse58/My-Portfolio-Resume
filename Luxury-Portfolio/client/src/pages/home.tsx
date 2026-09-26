@@ -19,6 +19,8 @@ import {
   Workflow,
   RefreshCw,
   Zap,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { motion } from "framer-motion";
 
@@ -447,6 +449,16 @@ const AutomationShowcase = () => (
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState("about");
+  const [projectPage, setProjectPage] = useState(1);
+
+  const changeProjectPage = (page: number) => {
+    setProjectPage(page);
+    window.setTimeout(() => {
+      document
+        .getElementById("projects")
+        ?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 50);
+  };
 
   // Robust IntersectionObserver-based Scroll Spy
   useEffect(() => {
@@ -1096,6 +1108,8 @@ export default function Home() {
 
           {/* Featured Projects */}
           <div className="group/list space-y-12">
+            {projectPage === 1 && (
+              <>
               <ProjectCard
                 title="Technomalist"
                 description="An automated technology-news publishing platform that scans RSS feeds, classifies stories, supports editorial review, queues approved articles, and publishes them to a live newsroom."
@@ -1152,6 +1166,10 @@ export default function Home() {
                 ]}
                 link="https://maddockhawkins.com/"
               />
+              </>
+            )}
+            {projectPage === 2 && (
+              <>
               <ProjectCard
                 title="PixelWave"
                 description="A creative agency website showcasing digital design and development services. Built with a focus on modern aesthetics and responsive performance."
@@ -1180,6 +1198,9 @@ export default function Home() {
                 skills={["Real Estate", "Listings", "Luxury", "Divi"]}
                 link="https://royalblue-rhinoceros-744037.hostingersite.com/eminence-real-estates/"
               />
+              </>
+            )}
+            {projectPage === 3 && (
               <ProjectCard
                 title="Brewakening"
                 description="A specialized coffee brand website. Focuses on brand storytelling and product showcasing for coffee enthusiasts."
@@ -1187,7 +1208,54 @@ export default function Home() {
                 skills={["eCommerce", "Brand", "Retail", "Divi"]}
                 link="https://royalblue-rhinoceros-744037.hostingersite.com/12281-2/"
               />
+            )}
           </div>
+
+          <nav
+            className="mt-12 flex items-center justify-between border-t border-primary/15 pt-6"
+            aria-label="Featured projects pagination"
+          >
+            <button
+              type="button"
+              onClick={() => changeProjectPage(projectPage - 1)}
+              disabled={projectPage === 1}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 px-4 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-30"
+              aria-label="Previous project page"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              Previous
+            </button>
+
+            <div className="flex items-center gap-2">
+              {[1, 2, 3].map((page) => (
+                <button
+                  key={page}
+                  type="button"
+                  onClick={() => changeProjectPage(page)}
+                  className={`flex h-9 w-9 items-center justify-center rounded-full border text-sm font-semibold transition-all ${
+                    projectPage === page
+                      ? "border-primary bg-primary text-primary-foreground"
+                      : "border-primary/20 text-muted-foreground hover:border-primary/60 hover:text-primary"
+                  }`}
+                  aria-label={`Go to project page ${page}`}
+                  aria-current={projectPage === page ? "page" : undefined}
+                >
+                  {page}
+                </button>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onClick={() => changeProjectPage(projectPage + 1)}
+              disabled={projectPage === 3}
+              className="inline-flex items-center gap-2 rounded-full border border-primary/20 px-4 py-2 text-xs font-bold uppercase tracking-widest text-muted-foreground transition-all hover:border-primary/60 hover:text-primary disabled:cursor-not-allowed disabled:opacity-30"
+              aria-label="Next project page"
+            >
+              Next
+              <ChevronRight className="h-4 w-4" />
+            </button>
+          </nav>
         </section>
 
         <footer className="flex justify-center max-w-md pb-16 text-sm text-muted-foreground sm:pb-0">
