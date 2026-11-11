@@ -237,6 +237,20 @@ const skillGroups = [
       "Troubleshooting",
     ],
   },
+  {
+    title: "AI Systems & Automation",
+    description: "Practical AI features designed, tested, and connected to real business workflows.",
+    icon: Bot,
+    skills: [
+      "AI Chatbot Development",
+      "AI Training & Evaluation",
+      "Prompt Engineering",
+      "Knowledge Base Design",
+      "AI Workflow Automation",
+      "Human-in-the-Loop Review",
+      "AI Response Testing",
+    ],
+  },
 ];
 
 const featuredSkills = ["WordPress", "Shopify", "React / Next.js", "Node.js"];
